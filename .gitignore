@@ -1,0 +1,10 @@
+.*swp
+local_database.sqlite3
+.idea
+__pycache__/
+ygks/caches/*
+local_database
+*.py[cod]
+static_cdn/
+media_cdn/
+*.DS_Store
