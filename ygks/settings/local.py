@@ -22,6 +22,3 @@ DATABASES = {
 # add static root to properly configure collectstatic under local dev
 urlpatterns = [] + static(settings.STATIC_URL,
                           document_root=settings.STATIC_ROOT)
-urlpatterns.append(
-    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-)
