@@ -30,6 +30,9 @@ class ReviewerSerializer(serializers.ModelSerializer):
 
 
 class ReviewSerializer(serializers.ModelSerializer):
+
+    reviewer = serializers.SerializerMethodField()
+
     class Meta:
         model = Review
         fields = (
@@ -41,6 +44,9 @@ class ReviewSerializer(serializers.ModelSerializer):
             'updated_at'
         )
         depth = 1
+
+    def get_reviewer(self, review):
+        return ReviewerSerializer(review.reviewer).data
 
 
 class MemberSerializer(serializers.ModelSerializer):
@@ -57,6 +63,29 @@ class MemberSerializer(serializers.ModelSerializer):
         return member.get_stars_average()
 
     def get_last_review(self, member):
-        return ReviewSerializer(
-            Review.objects.filter(member=member).last()
-        ).data
+        review = Review.objects.filter(
+            member=member, approved=True
+        ).last()
+        if review:
+            serializer = ReviewSerializer(review)
+            return serializer.data
+        return {}
+
+
+class MemberMapSerializer(serializers.ModelSerializer):
+
+    stars_average = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Member
+        fields = (
+            'name',
+            'latitude',
+            'longitude',
+            'photo',
+            'logo',
+            'stars_average'
+        )
+
+    def get_stars_average(self, member):
+        return member.get_stars_average()

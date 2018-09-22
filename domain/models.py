@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 import hashlib
+from fontawesome.fields import IconField
 
 # Create your models here.
 
@@ -28,6 +29,7 @@ class Stamp(models.Model):
 
 class Sector(models.Model):
     title = models.CharField(max_length=128, blank=False, null=False)
+    icon = IconField()
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
 
@@ -62,6 +64,7 @@ class Member(models.Model):
         null=True
     )
     featured = models.BooleanField(default=False)
+    active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True)
 
@@ -73,12 +76,14 @@ class Member(models.Model):
         verbose_name_plural = 'Members'
 
     def get_stars_average(self):
-        all_reviews = Review.objects.filter(member=self)
+        all_reviews = Review.objects.filter(
+            member=self, approved=True
+        )
         if all_reviews.count():
             sum = 0
             for review in all_reviews:
                 sum += review.stars
-            return sum / all_reviews.count()
+            return round(sum / all_reviews.count())
         return 0
 
 
