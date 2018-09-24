@@ -12,9 +12,21 @@ class StampSerializer(serializers.ModelSerializer):
 
 
 class SectorSerializer(serializers.ModelSerializer):
+
+    icon = serializers.SerializerMethodField()
+
     class Meta:
         model = Sector
-        fields = '__all__'
+        fields = (
+            'id',
+            'title',
+            'icon',
+            'created_at',
+            'updated_at'
+        )
+
+    def get_icon(self, sector):
+        return sector.icon.id
 
 
 class ReviewerSerializer(serializers.ModelSerializer):
