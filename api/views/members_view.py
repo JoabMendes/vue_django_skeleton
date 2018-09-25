@@ -40,6 +40,8 @@ class FeaturedMemberAPIView(APIView):
 
 class MemberMapAPIView(APIView):
 
+    permission_classes = ()
+
     def get(self, format=None):
         all_members = Member.objects.filter(active=True)
         serializer = MemberMapSerializer(all_members, many=True)
@@ -51,12 +53,14 @@ class MemberMapAPIView(APIView):
         max_long = 180
         min_long = -180
         if 'lat' in location:
-            if location['lat'] >= max_lat and location['lat'] <= min_lat:
+            lat = float(location['lat'])
+            if lat >= max_lat or lat <= min_lat:
                 return False
         else:
             return False
         if 'long' in location:
-            if location['long'] >= max_long and location['long'] <= min_long:
+            long = float(location['long'])
+            if long >= max_long or long <= min_long:
                 return False
         else:
             return False
@@ -70,7 +74,7 @@ class MemberMapAPIView(APIView):
                 ratio = request.data['ratio']
                 lat = location['lat']
                 long = location['long']
-                members = Member.objects.all()
+                members = Member.objects.filter(active=True)
                 metric = 'km'
                 if 'metric' in request.data and request.data['metric'] != 'km':
                     metric = 'ml'
@@ -78,19 +82,22 @@ class MemberMapAPIView(APIView):
                 for member in members:
                     if member.is_near(lat, long, ratio, metric):
                         near_members.append(member)
-                serializer = MemberMapSerializer(near_members, many=True)
+                if 'full' in request.data and bool(request.data['full']):
+                    serializer = MemberSerializer(near_members, many=True)
+                else:
+                    serializer = MemberMapSerializer(near_members, many=True)
                 return Response(serializer.data)
             else:
                 error = {
                     'message': 'Invalid location specified',
-                    'error': 'Invalid location paramenter'
+                    'error': 'Invalid location parameter'
                 }
                 return Response(
                     error, status=status.HTTP_422_UNPROCESSABLE_ENTITY
                 )
         else:
             error = {
-                'message': 'missing location or ratio paramenters',
+                'message': 'missing location or ratio parameters',
                 'error': 'missing parameter'
             }
             return Response(

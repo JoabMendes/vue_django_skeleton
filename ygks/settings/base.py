@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'fontawesome',
+    'geoposition',
     'domain',
     'api'
 ]
@@ -135,3 +136,5 @@ REST_FRAMEWORK = {
         'api.custom_permissions.IsGetOrIsAuthenticated',
     )
 }
+
+GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyAO-42GhWkWzgoQcDyWdX9zrsr-VKrATrg'

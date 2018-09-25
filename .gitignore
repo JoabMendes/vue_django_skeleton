@@ -7,4 +7,5 @@ local_database
 *.py[cod]
 static_cdn/
 media_cdn/
+media/
 *.DS_Store

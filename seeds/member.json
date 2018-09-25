@@ -6,22 +6,21 @@
       "name": "Member Example",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent placerat condimentum sem. Vivamus egestas imperdiet condimentum. Sed viverra erat id gravida aliquet. Suspendisse laoreet suscipit sem. Ut aliquet felis a lorem auctor consectetur. Mauris non erat euismod, volutpat diam ac, viverra ante. Proin at quam cursus, feugiat felis eu, egestas mi. Cras aliquam, neque quis gravida efficitur, nibh enim condimentum lorem, placerat tincidunt augue ligula ac erat. Sed diam diam, volutpat vitae sapien a, pellentesque efficitur nulla. Nulla vehicula neque in vulputate ultricies. In id eleifend ipsum. Nunc a mollis libero.",
       "address": "17 Hamilton St,\r\nKingston, Ontario\r\nCanada\r\nK7K 1P1",
-      "latitude": "44.2373589",
-      "longitude": "-76.4946626",
+      "position": "44.2374429,-76.49472889999998",
       "open_hours": "Sunday: Closed\r\nMonday: 8am - 4pm\r\nTuesday: 8am - 4pm\r\nWednesday: 8am - 4pm\r\nThursday: 8am - 4pm\r\nFriday: 8am - 4pm\r\nSaturday: 8am - 4pm",
       "products": "Product 1,\r\nProduct 2,\r\nProduct 3,\r\nProduct 4,\r\nProduct 5,",
-      "logo": "member_logos/logo_uxEAY4R.png",
-      "photo": "member_logos/body-background-05_26wH0NN.jpg",
+      "logo": "member_logos/logo_Rj92dbE.png",
+      "photo": "member_logos/body-background-05_Mf1qbQS.jpg",
       "featured": false,
-      "created_at": "2018-09-21T21:16:09.995Z",
-      "updated_at": "2018-09-21T21:16:09.995Z",
+      "active": true,
+      "created_at": "2018-09-25T21:20:32.238Z",
+      "updated_at": "2018-09-25T21:20:32.238Z",
       "sectors": [
         1
       ],
       "stamps": [
         1
-      ],
-      "active": true
+      ]
     }
   },
   {
@@ -30,75 +29,74 @@
     "fields": {
       "name": "Member Example 2",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent placerat condimentum sem. Vivamus egestas imperdiet condimentum. Sed viverra erat id gravida aliquet. Suspendisse laoreet suscipit sem. Ut aliquet felis a lorem auctor consectetur. Mauris non erat euismod, volutpat diam ac, viverra ante. Proin at quam cursus, feugiat felis eu, egestas mi. Cras aliquam, neque quis gravida efficitur, nibh enim condimentum lorem, placerat tincidunt augue ligula ac erat. Sed diam diam, volutpat vitae sapien a, pellentesque efficitur nulla. Nulla vehicula neque in vulputate ultricies. In id eleifend ipsum. Nunc a mollis libero.",
-      "address": "17 Hamilton St,\r\nKingston, Ontario\r\nCanada\r\nK7K 1P1",
-      "latitude": "44.3373589",
-      "longitude": "-76.5046626",
+      "address": "945 Princess Street,\r\nKingston, ON \r\nK7L 3N6\r\nCanada",
+      "position": "44.24415459999999,-76.51116669999999",
       "open_hours": "Sunday: Closed\r\nMonday: 8am - 4pm\r\nTuesday: 8am - 4pm\r\nWednesday: 8am - 4pm\r\nThursday: 8am - 4pm\r\nFriday: 8am - 4pm\r\nSaturday: 8am - 4pm",
       "products": "Product 1,\r\nProduct 2,\r\nProduct 3,\r\nProduct 4,\r\nProduct 5,",
-      "logo": "member_logos/logo_uxEAY4R.png",
-      "photo": "member_logos/body-background-05_26wH0NN.jpg",
+      "logo": "member_logos/logo_d4igqAQ.png",
+      "photo": "member_logos/body-background-05_Et16gbq.jpg",
       "featured": false,
-      "created_at": "2018-09-21T21:16:09.995Z",
-      "updated_at": "2018-09-21T21:16:09.995Z",
+      "active": true,
+      "created_at": "2018-09-25T21:27:05.679Z",
+      "updated_at": "2018-09-25T21:27:05.680Z",
       "sectors": [
-        1,
-        2
+        1
       ],
       "stamps": [
         2
-      ],
-      "active": true
+      ]
     }
   },
-    {
+  {
     "model": "domain.member",
     "pk": 3,
     "fields": {
       "name": "Member Example 3",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent placerat condimentum sem. Vivamus egestas imperdiet condimentum. Sed viverra erat id gravida aliquet. Suspendisse laoreet suscipit sem. Ut aliquet felis a lorem auctor consectetur. Mauris non erat euismod, volutpat diam ac, viverra ante. Proin at quam cursus, feugiat felis eu, egestas mi. Cras aliquam, neque quis gravida efficitur, nibh enim condimentum lorem, placerat tincidunt augue ligula ac erat. Sed diam diam, volutpat vitae sapien a, pellentesque efficitur nulla. Nulla vehicula neque in vulputate ultricies. In id eleifend ipsum. Nunc a mollis libero.",
-      "address": "17 Hamilton St,\r\nKingston, Ontario\r\nCanada\r\nK7K 1P1",
-      "latitude": "45.3373589",
-      "longitude": "-76.5046626",
+      "address": "278 Frontenac St\r\nKingston, ON \r\nK7L 3S8\r\nCanada",
+      "position": "44.2303428,-76.4987999",
       "open_hours": "Sunday: Closed\r\nMonday: 8am - 4pm\r\nTuesday: 8am - 4pm\r\nWednesday: 8am - 4pm\r\nThursday: 8am - 4pm\r\nFriday: 8am - 4pm\r\nSaturday: 8am - 4pm",
       "products": "Product 1,\r\nProduct 2,\r\nProduct 3,\r\nProduct 4,\r\nProduct 5,",
-      "logo": "member_logos/logo_uxEAY4R.png",
-      "photo": "member_logos/body-background-05_26wH0NN.jpg",
+      "logo": "member_logos/logo_ogmAToL.png",
+      "photo": "member_logos/body-background-05_bMyMd3h.jpg",
       "featured": true,
-      "created_at": "2018-09-21T21:16:09.995Z",
-      "updated_at": "2018-09-21T21:16:09.995Z",
+      "active": true,
+      "created_at": "2018-09-25T21:28:51.782Z",
+      "updated_at": "2018-09-25T21:28:51.782Z",
       "sectors": [
-        3
+        2
       ],
       "stamps": [
-        1
-      ],
-      "active": true
+        1,
+        4
+      ]
     }
   },
-
-    {
+  {
     "model": "domain.member",
     "pk": 4,
     "fields": {
       "name": "Member Example 4",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent placerat condimentum sem. Vivamus egestas imperdiet condimentum. Sed viverra erat id gravida aliquet. Suspendisse laoreet suscipit sem. Ut aliquet felis a lorem auctor consectetur. Mauris non erat euismod, volutpat diam ac, viverra ante. Proin at quam cursus, feugiat felis eu, egestas mi. Cras aliquam, neque quis gravida efficitur, nibh enim condimentum lorem, placerat tincidunt augue ligula ac erat. Sed diam diam, volutpat vitae sapien a, pellentesque efficitur nulla. Nulla vehicula neque in vulputate ultricies. In id eleifend ipsum. Nunc a mollis libero.",
-      "address": "17 Hamilton St,\r\nKingston, Ontario\r\nCanada\r\nK7K 1P1",
-      "latitude": "45.3373589",
-      "longitude": "-76.5046626",
+      "address": "303 Bagot St #201, \r\nKingston, ON \r\nK7K 3M2\r\nCanada",
+      "position": "44.2322263,-76.48380279999998",
       "open_hours": "Sunday: Closed\r\nMonday: 8am - 4pm\r\nTuesday: 8am - 4pm\r\nWednesday: 8am - 4pm\r\nThursday: 8am - 4pm\r\nFriday: 8am - 4pm\r\nSaturday: 8am - 4pm",
       "products": "Product 1,\r\nProduct 2,\r\nProduct 3,\r\nProduct 4,\r\nProduct 5,",
-      "logo": "member_logos/logo_uxEAY4R.png",
-      "photo": "member_logos/body-background-05_26wH0NN.jpg",
-      "featured": true,
-      "created_at": "2018-09-21T21:16:09.995Z",
-      "updated_at": "2018-09-21T21:16:09.995Z",
+      "logo": "member_logos/logo_P5nKh6V.png",
+      "photo": "member_logos/body-background-05_rWjvsCM.jpg",
+      "featured": false,
+      "active": false,
+      "created_at": "2018-09-25T21:31:05.341Z",
+      "updated_at": "2018-09-25T21:31:05.341Z",
       "sectors": [
-        3
+        4
       ],
       "stamps": [
-        1
-      ],
-      "active": false
+        1,
+        2,
+        3,
+        4
+      ]
     }
   }
 ]

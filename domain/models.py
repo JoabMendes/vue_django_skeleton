@@ -3,6 +3,7 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 import hashlib
 from fontawesome.fields import IconField
+from geoposition.fields import GeopositionField
 from math import radians, cos, sin, asin, sqrt
 
 # Create your models here.
@@ -46,8 +47,9 @@ class Member(models.Model):
     name = models.CharField(max_length=256, blank=False, null=False)
     description = models.TextField(blank=False, null=False)
     address = models.TextField(blank=False, null=False)
-    latitude = models.CharField(max_length=128, blank=False, null=False)
-    longitude = models.CharField(max_length=128, blank=False, null=False)
+    # latitude = models.CharField(max_length=128, blank=False, null=False)
+    # longitude = models.CharField(max_length=128, blank=False, null=False)
+    position = GeopositionField(null=True, blank=True)
     open_hours = models.TextField(blank=False, null=False)
     products = models.TextField(blank=False, null=False)
     sectors = models.ManyToManyField(Sector, related_name='sectors')
@@ -103,7 +105,11 @@ class Member(models.Model):
 
     def is_near(self, lat, long, radius, metric='km'):
         distance = self.haversine(
-            lat, long, self.latitude, self.longitude, metric
+            lat,
+            long,
+            float(self.position.latitude),
+            float(self.position.longitude),
+            metric
         )
         return distance <= radius
 

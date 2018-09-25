@@ -65,6 +65,8 @@ class MemberSerializer(serializers.ModelSerializer):
 
     stars_average = serializers.SerializerMethodField()
     last_review = serializers.SerializerMethodField()
+    latitude = serializers.SerializerMethodField()
+    longitude = serializers.SerializerMethodField()
 
     class Meta:
         model = Member
@@ -83,10 +85,18 @@ class MemberSerializer(serializers.ModelSerializer):
             return serializer.data
         return {}
 
+    def get_latitude(self, member):
+        return member.position.latitude
+
+    def get_longitude(self, member):
+        return member.position.longitude
+
 
 class MemberMapSerializer(serializers.ModelSerializer):
 
     stars_average = serializers.SerializerMethodField()
+    latitude = serializers.SerializerMethodField()
+    longitude = serializers.SerializerMethodField()
 
     class Meta:
         model = Member
@@ -101,3 +111,9 @@ class MemberMapSerializer(serializers.ModelSerializer):
 
     def get_stars_average(self, member):
         return member.get_stars_average()
+
+    def get_latitude(self, member):
+        return member.position.latitude
+
+    def get_longitude(self, member):
+        return member.position.longitude

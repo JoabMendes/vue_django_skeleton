@@ -20,7 +20,7 @@ class SectorAdmin(admin.ModelAdmin):
 
 class MemberAdmin(admin.ModelAdmin):
     list_display = (
-        'name', 'created_at'
+        'name', 'created_at', 'active', 'featured'
     )
     list_filter = ['name', 'featured', 'stamps', 'sectors']
     search_fields = ['name']
