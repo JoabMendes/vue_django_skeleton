@@ -3,6 +3,7 @@ from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 import hashlib
 from fontawesome.fields import IconField
+from math import radians, cos, sin, asin, sqrt
 
 # Create your models here.
 
@@ -85,6 +86,26 @@ class Member(models.Model):
                 sum += review.stars
             return round(sum / all_reviews.count())
         return 0
+
+    def haversine(self, lat1, lon1, lat2, lon2, metric='km'):
+        # calculates the distace between two points
+        earth_radius = 6372.8   # Earth radius in kilometers
+        if metric != 'km':
+            # Earth radius in miles
+            earth_radius = 3959.87433
+        d_lat = radians(lat2 - lat1)
+        d_lon = radians(lon2 - lon1)
+        lat1 = radians(lat1)
+        lat2 = radians(lat2)
+        a = sin(d_lat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(d_lon / 2) ** 2
+        c = 2 * asin(sqrt(a))
+        return earth_radius * c
+
+    def is_near(self, lat, long, radius, metric='km'):
+        distance = self.haversine(
+            lat, long, self.latitude, self.longitude, metric
+        )
+        return distance <= radius
 
 
 class Reviewer(models.Model):
