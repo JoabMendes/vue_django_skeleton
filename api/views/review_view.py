@@ -1,6 +1,6 @@
 
 # Domain
-from domain.models import Review
+from domain.models import Review, Member
 
 # Rest Framework libraries
 from django.http import Http404
@@ -55,3 +55,42 @@ class ReviewAPIView(APIView):
         review = self.get_object(pk=id)
         serializer = ReviewSerializer(review)
         return Response(serializer.data)
+
+
+class MemberReviewAPIView(APIView):
+
+    def get_member_object(self, pk):
+        try:
+            return Member.objects.get(pk=pk)
+        except Member.DoesNotExist:
+            raise Http404
+
+    def get(self, request, member_id, format=None):
+        """" GET /api/v1/reviews/member/<member_id>
+
+             Retrieves all reviews related to a member
+             payload for pagination:
+             payload: {
+                offset: 0 (Default),
+                reviews_per_page: 10 (Default)
+             }
+        """
+        offset = 0
+        reviews_per_page = 10
+        if 'offset' in request.data:
+            offset = int(request.data['offset'])
+        if 'reviews_per_page' in request.data:
+            reviews_per_page = int(request.data['reviews_per_page'])
+        member = self.get_member_object(pk=member_id)
+        member_reviews = Review.objects.filter(
+            member=member, approved=True
+        )
+        serializer = ReviewSerializer(
+            member_reviews[offset:(offset+reviews_per_page)],
+            many=True
+        )
+        response = dict()
+        response['offset'] = offset
+        response['reviews_per_page'] = reviews_per_page
+        response['data'] = serializer.data
+        return Response(response)

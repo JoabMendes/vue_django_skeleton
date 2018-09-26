@@ -37,5 +37,9 @@ urlpatterns = [
     url(
         r'^reviews/(?P<id>[0-9]+)?/?$',
         review_view.ReviewAPIView.as_view()
+    ),
+    url(
+        r'^reviews/member/(?P<member_id>[0-9]+)?/?$',
+        review_view.MemberReviewAPIView.as_view()
     )
 ]

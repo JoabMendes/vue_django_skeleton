@@ -7,11 +7,9 @@ from rest_framework.test import APIClient
 # Models
 from domain.models import Review, Reviewer
 
-import os
-
-os.environ['RECAPTCHA_TESTING'] = 'True'
-
 # import json
+import os
+os.environ['RECAPTCHA_TESTING'] = 'True'
 
 
 class TestReviewAPI(TestCase):
@@ -108,5 +106,76 @@ class TestReviewAPI(TestCase):
         self.assertEqual(
             review.reviewer.email, json_response['reviewer']['email']
         )
+
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))
+
+    def test_get_member_reviews(self):
+
+        endpoint = '/api/v1/reviews/member/1'
+
+        response = self.client.get(endpoint)
+
+        expected = {
+            "data": [
+                {
+                    "approved": True,
+                    "comment": "This place is really nice",
+                    "created_at": "2018-09-21T22:07:39.777000Z",
+                    "reviewer": {
+                        "avatar": (
+                            "http://www.gravatar.com/avatar/"
+                            "8cb5fa316e5e32877c4e8055f6f2afa4?d=404"
+                        ),
+                        "created_at": "2018-09-21T22:07:07.287000Z",
+                        "email": "joab.mendes.r2d2@gmail.com",
+                        "id": 1,
+                        "name": "Joabe Mendes",
+                        "updated_at": "2018-09-21T22:07:07.287000Z"
+                    },
+                    "stars": 4,
+                    "updated_at": "2018-09-21T22:07:39.777000Z"
+                },
+                {
+                    "approved": True,
+                    "comment": "This place is awesome!",
+                    "created_at": "2018-09-21T22:08:05.885000Z",
+                    "reviewer": {
+                        "avatar": (
+                            "http://www.gravatar.com/avatar/"
+                            "8cb5fa316e5e32877c4e8055f6f2afa4?d=404"
+                        ),
+                        "created_at": "2018-09-21T22:07:07.287000Z",
+                        "email": "joab.mendes.r2d2@gmail.com",
+                        "id": 1,
+                        "name": "Joabe Mendes",
+                        "updated_at": "2018-09-21T22:07:07.287000Z"
+                    },
+                    "stars": 5,
+                    "updated_at": "2018-09-21T22:08:05.885000Z"
+                },
+                {
+                    "approved": True,
+                    "comment": "This place is so so!",
+                    "created_at": "2018-09-21T22:08:21.790000Z",
+                    "reviewer": {
+                        "avatar": (
+                            "http://www.gravatar.com/avatar/"
+                            "8cb5fa316e5e32877c4e8055f6f2afa4?d=404"
+                        ),
+                        "created_at": "2018-09-21T22:07:07.287000Z",
+                        "email": "joab.mendes.r2d2@gmail.com",
+                        "id": 1,
+                        "name": "Joabe Mendes",
+                        "updated_at": "2018-09-21T22:07:07.287000Z"
+                    },
+                    "stars": 2,
+                    "updated_at": "2018-09-21T22:08:21.790000Z"
+                }
+            ],
+            "offset": 0,
+            "reviews_per_page": 10
+        }
+
+        self.assertEqual(response.json(), expected)
 
         # print(json.dumps(response.json(), indent=4, sort_keys=True))
