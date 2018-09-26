@@ -3,6 +3,7 @@ from django.conf.urls import url
 from api.views import stamps_view
 from api.views import sectors_view
 from api.views import members_view
+from api.views import review_view
 
 urlpatterns = [
     url(
@@ -32,5 +33,9 @@ urlpatterns = [
     url(
         r'^members/map/?$',
         members_view.MemberMapAPIView.as_view()
+    ),
+    url(
+        r'^reviews/(?P<id>[0-9]+)?/?$',
+        review_view.ReviewAPIView.as_view()
     )
 ]

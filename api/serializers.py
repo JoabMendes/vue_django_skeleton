@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-
+from recaptcha.fields import ReCaptchaField
 
 from domain.models import Stamp, Sector, Member, Reviewer, Review
 
@@ -43,7 +43,7 @@ class ReviewerSerializer(serializers.ModelSerializer):
 
 class ReviewSerializer(serializers.ModelSerializer):
 
-    reviewer = serializers.SerializerMethodField()
+    reviewer = ReviewerSerializer()
 
     class Meta:
         model = Review
@@ -57,8 +57,42 @@ class ReviewSerializer(serializers.ModelSerializer):
         )
         depth = 1
 
-    def get_reviewer(self, review):
-        return ReviewerSerializer(review.reviewer).data
+
+class WriteReviewSerializer(serializers.ModelSerializer):
+
+    reviewer = ReviewerSerializer()
+    recaptcha = ReCaptchaField(write_only=True)
+
+    class Meta:
+        model = Review
+        fields = (
+            'member',
+            'recaptcha',
+            'reviewer',
+            'stars',
+            'comment'
+        )
+
+    def get_object_by_email(self, email):
+        try:
+            return Reviewer.objects.get(email=email)
+        except Reviewer.DoesNotExist:
+            return False
+
+    def create(self, validated_data):
+        del validated_data['recaptcha']
+        reviewer_data = validated_data.pop('reviewer')
+        reviewer = self.get_object_by_email(email=reviewer_data.get('email'))
+        if not isinstance(reviewer,  Reviewer):
+            reviewer = Reviewer.objects.create(**reviewer_data)
+            reviewer.save()
+        review = Review.objects.create(
+            member=validated_data.get('member'),
+            reviewer=reviewer,
+            stars=validated_data.get('stars'),
+            comment=validated_data.get('comment')
+        )
+        return review
 
 
 class MemberSerializer(serializers.ModelSerializer):

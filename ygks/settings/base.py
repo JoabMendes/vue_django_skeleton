@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'fontawesome',
     'geoposition',
+    'recaptcha',
     'domain',
     'api'
 ]
@@ -137,4 +138,10 @@ REST_FRAMEWORK = {
     )
 }
 
+# Google maps Keys
+
 GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyAO-42GhWkWzgoQcDyWdX9zrsr-VKrATrg'
+
+# Google Re-captcha Key
+
+GR_CAPTCHA_SECRET_KEY = '6LfbJ3IUAAAAADICXRMQn5FA90GL179FVyQTU0KD'
