@@ -396,3 +396,49 @@ class TestMembersAPI(TestCase):
         self.assertEqual(response.json(), expected)
 
         # print(json.dumps(response.json(), indent=4, sort_keys=True))
+
+    def test_post_member_map_km_paginated_success(self):
+
+        """
+            Tests POST /api/v1/members/map/
+            Using km as metrics and retuning a simplified member
+            response body.
+        """
+
+        endpoint = '/api/v1/members/map/'
+
+        payload = {
+            'location': {
+                'lat': 44.2334508,
+                'long': -76.4987131
+            },
+            'ratio': 1,
+            'paginated': True,
+            'offset': 0,
+            'members_per_page': 5
+        }
+
+        response = self.client.post(endpoint, data=payload, format='json')
+
+        expected = [
+            {
+                "latitude": 44.2374429,
+                "logo": "/media/member_logos/logo_Rj92dbE.png",
+                "longitude": -76.49472889999998,
+                "name": "Member Example",
+                "photo": "/media/member_logos/body-background-05_Mf1qbQS.jpg",
+                "stars_average": 4
+            },
+            {
+                "latitude": 44.2303428,
+                "logo": "/media/member_logos/logo_ogmAToL.png",
+                "longitude": -76.4987999,
+                "name": "Member Example 3",
+                "photo": "/media/member_logos/body-background-05_bMyMd3h.jpg",
+                "stars_average": 0
+            }
+        ]
+
+        self.assertEqual(response.json(), expected)
+
+        # print(json.dumps(response.json(), indent=4, sort_keys=True))

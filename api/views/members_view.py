@@ -79,9 +79,24 @@ class MemberMapAPIView(APIView):
                 if 'metric' in request.data and request.data['metric'] != 'km':
                     metric = 'ml'
                 near_members = []
+                # Find near members
                 for member in members:
                     if member.is_near(lat, long, ratio, metric):
                         near_members.append(member)
+                # Provided pagination if required
+                if 'paginated' in request.data and request.data['paginated']:
+                    offset = 0
+                    members_per_page = 10
+                    if 'offset' in request.data:
+                        offset = int(request.data['offset'])
+                    if 'members_per_page' in request.data:
+                        members_per_page = int(
+                            request.data['members_per_page']
+                        )
+                    near_members = near_members[
+                        offset:(offset+members_per_page)
+                    ]
+                # Set serializer mode
                 if 'full' in request.data and bool(request.data['full']):
                     serializer = MemberSerializer(near_members, many=True)
                 else:
