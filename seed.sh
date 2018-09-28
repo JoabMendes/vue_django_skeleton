@@ -17,3 +17,4 @@ FIX_LOC='seeds/'
 
 echo "Cleanning pyc"
 find . -name "*.pyc" -exec rm -rf {} \;
+
