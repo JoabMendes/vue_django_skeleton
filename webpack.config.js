@@ -1,7 +1,7 @@
-var path = require('path')
-var webpack = require('webpack')
-var BundleTracker = require('webpack-bundle-tracker')
-var WriteFilePlugin = require('write-file-webpack-plugin')
+var path = require('path');
+var webpack = require('webpack');
+var BundleTracker = require('webpack-bundle-tracker');
+var WriteFilePlugin = require('write-file-webpack-plugin');
 
 module.exports = {
   entry: './src/main.js',
