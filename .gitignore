@@ -19,3 +19,4 @@ static_cdn/
 media_cdn/
 media/
 *.DS_Store
+*hot-update*
