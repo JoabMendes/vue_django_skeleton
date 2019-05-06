@@ -1,6 +1,4 @@
-# ygks
-
-> Kingston Sustainable Member Explorer App
+## Vue + Django App Skeleton
 
 ## Requirements
 
@@ -36,7 +34,43 @@ npm run build
 # run python server
 ./manage.py runserver
 
+```
+
+## Running on dev
+
+```
+# Inside the project python environment, run the django server
+./run_django_dev.sh
+
+# In another terminal windown run the npm hot reloader serve
+./run_npm_dev.sh
 
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### npm default dependencies 
+
+- vue
+- vue-router
+- bootstrap-vue
+- vue-recaptcha
+- vue-swal
+- vue-multiselect
+
+### django default dependencies
+
+ - dj-database-url
+ - Django
+ - django-rest-recaptcha
+ - django-webpack-loader
+ - djangorestframework
+ - flake8
+ - gunicorn
+ - psycopg2
+ - pyflakes
+ - PyYAML
+ - requests
+ - whitenoise
+
+### New project setup 
+
+    To do

@@ -1,31 +1,37 @@
 <template>
   <div id="app">
-    <b-navbar toggleable="md" type="light" variant="light">
+    <div id="header">
+      <b-container fluid>
+        <b-navbar toggleable="md" type="light" variant="light">
+          <b-navbar-brand href="#/">NavBar</b-navbar-brand>
+          <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+          <b-collapse id="nav-collapse" is-nav>
+            <b-navbar-nav>
+              <b-nav-item href="#/page">Link</b-nav-item>
+              <b-nav-item href="#/page" disabled>Disabled</b-nav-item>
+            </b-navbar-nav>
+            <!-- Right aligned nav items -->
+            <b-navbar-nav class="ml-auto">
+              <b-nav-item href="#/page">Link</b-nav-item>
+              <b-nav-item href="#/page">Link</b-nav-item>
+            </b-navbar-nav>
+          </b-collapse>
+        </b-navbar>
+      </b-container>
+    </div>
+    <div id="content">
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
+    </div>
+    <div id="footer">
 
-      <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-
-      <b-navbar-brand href="#">
-        <h1 id="brand-text">
-          <img src="/static/logo.png" class="logo">
-          <span>Members Explorer</span>
-        </h1>
-      </b-navbar-brand>
-
-      <b-collapse is-nav id="nav_collapse">
-        <!-- Right aligned nav items -->
-        <b-navbar-nav class="ml-auto">
-          <b-navbar-nav>
-            <b-nav-item href="#" class="nav-items activated">Overview</b-nav-item>
-            <b-nav-item href="#" class="nav-items">Explorer</b-nav-item>
-          </b-navbar-nav>
-        </b-navbar-nav>
-
-      </b-collapse>
-    </b-navbar>
+    </div>
   </div>
 </template>
 
 <script>
+
   import axios from 'axios';
 
   export default {
@@ -33,25 +39,16 @@
     data() {
       return {
         loading: true,
-        mapLoading: true,
       }
     },
     mounted() {
-      this.loadMapMembers();
-      this.loadFeatureMembers();
     },
-    methods: {
-      loadMapMembers() {
-
-      },
-      loadFeatureMembers() {
-
-      }
-    }
+    methods: {}
   }
 </script>
 
 <style lang="scss">
+
   #app {
     font-family: 'ABeeZee', sans-serif !important;
     letter-spacing: 2px;
@@ -63,28 +60,17 @@
     }
   }
 
-  #brand-text {
-    margin-left: 10%;
-    margin-right: 50px;
-    font-size: 15pt;
+  .fade-enter-active, .fade-leave-active {
+    transition-property: opacity;
+    transition-duration: .25s;
   }
 
-  .logo {
-    vertical-align: middle;
-    width: 35px;
-    height: 35px;
+  .fade-enter-active {
+    transition-delay: .25s;
   }
 
-  .nav-items {
-    margin-right: 10px;
-    margin-left: 10px;
-    a.nav-link {
-      color: #000000;
-    }
-  }
-
-  .nav-items.activated {
-    border-bottom: 2px solid #A3D165;
+  .fade-enter, .fade-leave-active {
+    opacity: 0
   }
 
 </style>

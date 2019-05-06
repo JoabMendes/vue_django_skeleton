@@ -3,8 +3,6 @@ chardet==3.0.4
 dj-database-url==0.5.0
 Django==2.1.1
 django-filter==2.0.0
-django-fontawesome==1.0
--e git+https://github.com/JoabMendes/django-geoposition@ab7dac066bf61a5b2ec18a30c7977a4ffc6d568b#egg=django_geoposition
 django-rest-recaptcha==1.0.2
 django-webpack-loader==0.6.0
 djangorestframework==3.8.2

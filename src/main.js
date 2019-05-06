@@ -5,19 +5,32 @@ import Router from 'vue-router';
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import VueRecaptcha from 'vue-recaptcha';
+import VueSwal from 'vue-swal';
+import Multiselect from 'vue-multiselect';
 
 Vue.use(Router);
 Vue.use(BootstrapVue);
+Vue.use(VueSwal);
+Vue.component('VueRecaptcha', VueRecaptcha);
+Vue.component('multiselect', Multiselect);
 
 // Views
 import App from './App.vue';
+import Index from './components/Index.vue';
+import Page from './components/Page.vue';
 
 const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: App,
+      name: 'index',
+      component: Index,
+    },
+    {
+      path: '/page',
+      name: 'page',
+      component: Page,
     },
   ]
 });

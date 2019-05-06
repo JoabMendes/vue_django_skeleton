@@ -20,12 +20,12 @@ PACKAGE_ROOT = os.path.abspath(__file__ + "/../../")
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ol&c^v!w-y!kprjw&j!bgl7=qq0dc5r)2zwyih5a+@96$(3f1^'
+SECRET_KEY = '%fh77l&nw(z=vd-5hk-5@q=oerr(cv2*f*^t79$c^hk+40$pu6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'sustainablekingston.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -37,8 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'fontawesome',
-    'geoposition',
     'recaptcha',
     'domain',
     'api',
@@ -151,10 +149,6 @@ REST_FRAMEWORK = {
         'api.custom_permissions.IsGetOrIsAuthenticated',
     )
 }
-
-# Google maps Keys
-
-GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyAO-42GhWkWzgoQcDyWdX9zrsr-VKrATrg'
 
 # Google Re-captcha Key
 
