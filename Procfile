@@ -1,2 +1,2 @@
 release: ./seed.sh
-web: gunicorn ygks.wsgi --timeout 30 --preload
+web: gunicorn app.wsgi --timeout 30 --preload
