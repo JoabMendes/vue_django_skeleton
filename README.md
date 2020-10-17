@@ -3,74 +3,48 @@
 ## Requirements
 
 - npm
-
 - vue-cli
-
 - pip
-
 - python3
-
 - python-dev-tools
 
 
 ## Build Setup
 
-``` bash
-# install dependencies
-npm install
+Before installing the dependencies, create a virtualenv with
 
-# build for production with minification
-npm run build
-
-# collect static files
-./manage.py collectstatic
-
-# apply migrations
-./manage.py
-
-# seed
-./seed_dev.sh
-
-# run python server
-./manage.py runserver
-
-```
+1. Install dependencies
+    ```shell script
+    make install
+    ```
+2. Configure datasets
+    ```shell script
+    make seed
+    ```
 
 ## Running on dev
 
+1. Inside the project python environment, run the django server
+    ```shell script
+    make run-backend
+    ```
+
+2. In another terminal windown run the npm hot reloader serve
+    ```shell script
+    make run-frontend
+    ```
+
+### New project setup
+
+Execute the following script to generate a django token:
+
+```shell script
+python generate_key.py
 ```
-# Inside the project python environment, run the django server
-./run_django_dev.sh
 
-# In another terminal windown run the npm hot reloader serve
-./run_npm_dev.sh
+Copy the output code into the the `app.settings.base.SECRET_KEY` var value.
 
-```
+The index.html file is loaded in the `/` path by the `app.urls` and it
+bootstraps the vue application inside the `src.main`.
 
-### npm default dependencies 
-
-- vue
-- vue-router
-- bootstrap-vue
-- vue-recaptcha
-- vue-swal
-- vue-multiselect
-
-### django default dependencies
-
- - dj-database-url
- - Django
- - django-rest-recaptcha
- - django-webpack-loader
- - djangorestframework
- - flake8
- - gunicorn
- - psycopg2
- - pyflakes
- - PyYAML
- - requests
- - whitenoise
-
-### New project setup 
-
-    To do
+The `src.App` loads the vue app and its associated `src.components`.
