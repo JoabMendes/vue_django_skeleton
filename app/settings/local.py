@@ -1,7 +1,8 @@
 
-from app.settings.base import *
 from django.conf import settings
 from django.conf.urls.static import static
+
+from app.settings.base import *
 
 DEBUG = True
 

@@ -1,6 +1,6 @@
 
-from app.settings.base import *
 import dj_database_url
+from app.settings.base import *
 
 DEBUG = False
 # Admins (For sending erros log)
