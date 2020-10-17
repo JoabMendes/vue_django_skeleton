@@ -1,0 +1,33 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 4
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[Makefile]
+indent_style = tab
+
+[*.yml]
+indent_size = 4
+
+[*.scss]
+  indent_size = 4
+
+[*.js]
+  indent_size = 4
+
+[*.html]
+  indent_size = 4
+
+[*.py]
+default_section = FIRSTPARTY
+known_first_party = src
+known_standard_library = dataclasses
+atomic = true
+line_length = 79
+multi_line_output = 3
+use_parentheses = true

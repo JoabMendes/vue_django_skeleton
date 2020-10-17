@@ -1,4 +1,4 @@
 ```
-DJANGO_SETTINGS_MODULE = "ygks.settings.production"
+DJANGO_SETTINGS_MODULE = "app.settings.production"
 HEROKU_ENV = 1
 ```

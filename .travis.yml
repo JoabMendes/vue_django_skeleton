@@ -5,7 +5,6 @@ python:
 install:
   - pip install -r requirements.txt
 env:
-  - DJANGO_SETTINGS_MODULE=ygks.settings.local
+  - DJANGO_SETTINGS_MODULE=app.settings.local
 script:
-  - python manage.py test
-  - flake8 domain ygks api --exclude=*/migrations,*settings
+  - make test

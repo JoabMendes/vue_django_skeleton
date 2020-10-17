@@ -12,7 +12,7 @@ package-lock.json
 .*swp
 local_database.sqlite3
 __pycache__/
-ygks/caches/*
+app/caches/*
 local_database
 *.py[cod]
 static_cdn/
