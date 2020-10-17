@@ -1,5 +1,7 @@
 ## Vue + Django App Skeleton
 
+[![Build Status](https://travis-ci.com/JoabMendes/vue_django_skeleton.svg?branch=master)](https://travis-ci.com/JoabMendes/vue_django_skeleton)
+
 ## Requirements
 
 - npm
