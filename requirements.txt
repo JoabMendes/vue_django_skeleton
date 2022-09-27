@@ -22,5 +22,5 @@ pytest-xdist==1.31.0
 pytz==2018.5
 pyyaml==5.4
 requests==2.20.0
-urllib3==1.24.2
+urllib3==1.26.5
 whitenoise==4.0
