@@ -1,10 +1,9 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 var BundleTracker = require('webpack-bundle-tracker');
-const Dotenv = require('dotenv-webpack');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
-var WriteFilePlugin = require('write-file-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
+var Dotenv = require('dotenv-webpack');
+const { VueLoaderPlugin } = require('vue-loader');
+var WriteFilePlugin  = require('write-file-webpack-plugin');
 
 module.exports = {
     entry: './src/main.js',
@@ -101,13 +100,14 @@ module.exports = {
     },
     devServer: {
         historyApiFallback: true,
-        noInfo: true,
-        overlay: true
+        client: {
+            overlay: true,
+        }
     },
     performance: {
         hints: false
     },
-    devtool: '#source-map',
+    devtool: 'source-map',
     optimization: {
         minimize: true,
         minimizer: [

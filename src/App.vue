@@ -32,7 +32,7 @@
 
 <script>
 
-  import axios from 'axios';
+  // import axios from 'axios';
 
   export default {
     name: 'app',
@@ -46,6 +46,7 @@
     methods: {}
   }
 </script>
+
 
 <style lang="scss">
 

@@ -20,7 +20,7 @@ PACKAGE_ROOT = os.path.abspath(__file__ + "/../../")
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '%fh77l&nw(z=vd-5hk-5@q=oerr(cv2*f*^t79$c^hk+40$pu6'
+SECRET_KEY = '0z%x27b9dz0t@@bf^8-vll_+ian#-8p@2w6*df0yl0r-ypl0$2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
